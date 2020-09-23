@@ -11,7 +11,6 @@ export default class RoomProvider extends Component {
     loading: true,
   };
   //get data from 'item' imported from './data'
-
   componentDidMount() {
     //items is from array
     let rooms = this.formatData(items);
@@ -33,9 +32,20 @@ export default class RoomProvider extends Component {
     });
     return tempItems;
   }
+
+  getRoom = (slug) => {
+    let tempRooms = [...this.state.rooms];
+    const room = tempRooms.find((m) => 
+    m.slug === slug);
+    return room;
+  };
   render() {
     return (
-      <RoomContext.Provider value={{ ...this.state }}>
+      <RoomContext.Provider
+        value={{
+          ...this.state,
+          getRoom: this.getRoom,
+        }}>
         {this.props.children}
       </RoomContext.Provider>
     );
