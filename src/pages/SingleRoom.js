@@ -18,7 +18,7 @@ export default class SingleRoom extends Component {
   render() {
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
-    console.log(getRoom);
+    console.log(room);
     return <div>hello from single room page</div>;
   }
 }
