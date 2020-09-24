@@ -6,12 +6,12 @@ import defaultBcg from "../images/room-1.jpeg";
 import { RoomContext } from "../context";
 
 export default class SingleRoom extends Component {
-  // constructor(props) {
-    // super(props);
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       slug: this.props.match.params.slug,
       defaultBcg,
-    // };
+    };
   }
   static contextType = RoomContext;
   //   componentDidMount() {}
@@ -19,6 +19,6 @@ export default class SingleRoom extends Component {
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
     console.log(room);
-    return <div>hello from single room page</div>;
+    return <div>hello from single room page </div>;
   }
 }
