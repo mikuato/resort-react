@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import defaultBcg from "../images/room-1.jpeg";
-import Hero from "../components/Hero";
+// import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
@@ -14,6 +14,7 @@ export default class SingleRoom extends Component {
       defaultBcg,
     };
   }
+  //use static contextType in class based component
   static contextType = RoomContext;
   //   componentDidMount() {}
   render() {

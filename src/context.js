@@ -35,8 +35,7 @@ export default class RoomProvider extends Component {
 
   getRoom = (slug) => {
     let tempRooms = [...this.state.rooms];
-    const room = tempRooms.find((m) => 
-    m.slug === slug);
+    const room = tempRooms.find((m) => m.slug === slug);
     return room;
   };
   render() {
@@ -53,5 +52,15 @@ export default class RoomProvider extends Component {
 }
 
 const RoomConsumer = RoomContext.Consumer;
+// higher order function aimin to render RoomContainer cpmponent
+export function withRoomConsumer(Component) {
+  return function consumerWrapper(props) {
+    return (
+      <RoomConsumer>
+        {(value) => <Component {...props} context={value} />}
+      </RoomConsumer>
+    );
+  };
+}
 
 export { RoomProvider, RoomConsumer, RoomContext };
